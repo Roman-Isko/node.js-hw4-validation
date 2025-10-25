@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { initMongoConnection } from './db/initMongoConnection.js';
-import Contact from './models/contact.js';
+import Contact from './models/Contact.js';
 
 dotenv.config();
 
