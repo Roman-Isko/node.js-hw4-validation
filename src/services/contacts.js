@@ -1,6 +1,6 @@
 import Contact from '../models/Contacts.js';
 
-// Отримати всі контакти
+// Отримати всі контакти...
 export async function getAllContacts() {
   return await Contact.find().lean();
 }
