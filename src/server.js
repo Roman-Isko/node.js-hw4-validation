@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import contactsRouter from './routers/contacts.js';
+import contactsRouter from './routers/Contacts.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 
