@@ -1,8 +1,14 @@
-require('dotenv').config();
-const fs = require('fs');
-const path = require('path');
-const { initMongoConnection } = require('./db/initMongoConnection');
-const Contact = require('./models/contact');
+import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { initMongoConnection } from './db/initMongoConnection.js';
+import Contact from './models/contact.js';
+
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function seed() {
   try {
