@@ -1,70 +1,7 @@
-// import createHttpError from 'http-errors';
-// import * as contactsService from '../services/Contacts.js';
-
-// export const getAllContacts = async (req, res) => {
-//   const contacts = await contactsService.getAllContacts();
-//   res.json({
-//     status: 200,
-//     message: 'Successfully fetched all contacts!',
-//     data: contacts,
-//   });
-// };
-
-// export const getContactById = async (req, res) => {
-//   const { contactId } = req.params;
-//   const contact = await contactsService.getContactById(contactId);
-
-//   if (!contact) {
-//     throw createHttpError(404, 'Contact not found');
-//   }
-
-//   res.json({
-//     status: 200,
-//     message: 'Successfully fetched contact!',
-//     data: contact,
-//   });
-// };
-
-// export const createContact = async (req, res) => {
-//   const newContact = await contactsService.createContact(req.body);
-//   res.status(201).json({
-//     status: 201,
-//     message: 'Successfully created a contact!',
-//     data: newContact,
-//   });
-// };
-
-// export const updateContact = async (req, res) => {
-//   const { contactId } = req.params;
-//   const updated = await contactsService.updateContact(contactId, req.body);
-
-//   if (!updated) {
-//     throw createHttpError(404, 'Contact not found');
-//   }
-
-//   res.json({
-//     status: 200,
-//     message: 'Successfully patched a contact!',
-//     data: updated,
-//   });
-// };
-
-// export const deleteContact = async (req, res) => {
-//   const { contactId } = req.params;
-//   const deleted = await contactsService.deleteContact(contactId);
-
-//   if (!deleted) {
-//     throw createHttpError(404, 'Contact not found');
-//   }
-
-//   res.status(204).send();
-// };
-
-// src/controllers/Contacts.js
 import createHttpError from 'http-errors';
 import * as contactsService from '../services/Contacts.js';
 
-// ✅ GET /contacts — з пагінацією, сортуванням, фільтрацією
+// GET /contacts — з пагінацією, сортуванням, фільтрацією
 export const getAllContacts = async (req, res, next) => {
   try {
     const {
@@ -110,7 +47,7 @@ export const getAllContacts = async (req, res, next) => {
   }
 };
 
-// ✅ GET /contacts/:contactId
+//  GET /contacts/:contactId
 export const getContactById = async (req, res, next) => {
   try {
     const { contactId } = req.params;
@@ -130,7 +67,7 @@ export const getContactById = async (req, res, next) => {
   }
 };
 
-// ✅ POST /contacts
+//  POST /contacts
 export const createContact = async (req, res, next) => {
   try {
     const newContact = await contactsService.createContact(req.body);
@@ -145,7 +82,7 @@ export const createContact = async (req, res, next) => {
   }
 };
 
-// ✅ PATCH /contacts/:contactId
+//  PATCH /contacts/:contactId
 export const updateContact = async (req, res, next) => {
   try {
     const { contactId } = req.params;
@@ -165,7 +102,7 @@ export const updateContact = async (req, res, next) => {
   }
 };
 
-// ✅ DELETE /contacts/:contactId
+//  DELETE /contacts/:contactId
 export const deleteContact = async (req, res, next) => {
   try {
     const { contactId } = req.params;
