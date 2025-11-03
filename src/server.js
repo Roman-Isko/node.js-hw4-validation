@@ -13,35 +13,6 @@ export default function setupServer() {
 
   app.use('/api/contacts', contactsRouter);
 
-  //////////////////
-
-  // debug: list routes
-  setImmediate(() => {
-    console.log('Mounted routes:');
-    if (app._router && app._router.stack) {
-      app._router.stack.forEach((r) => {
-        if (r.route && r.route.path) {
-          console.log(
-            Object.keys(r.route.methods).join(',').toUpperCase(),
-            r.route.path,
-          );
-        } else if (r.name === 'router') {
-          // nested router
-          r.handle.stack.forEach((layer) => {
-            if (layer.route && layer.route.path) {
-              console.log(
-                Object.keys(layer.route.methods).join(',').toUpperCase(),
-                layer.route.path,
-              );
-            }
-          });
-        }
-      });
-    }
-  });
-
-  ///////////////////
-
   app.use(notFoundHandler);
 
   app.use(errorHandler);
